@@ -41,7 +41,7 @@ export function initVariables(self: InstanceBase<VideoHubConfig>, state: Videohu
 				variableId: `output_${output.id + 1}_id`,
 			})
 
-			variableValues[`output_${output.id + 1}_id`] = output.id
+			variableValues[`output_${output.id + 1}_id`] = output.id + 1
 
 			variableDefinitions.push({
 				name: `Label of input routed to output ${output.id + 1}`,
@@ -73,7 +73,7 @@ export function initVariables(self: InstanceBase<VideoHubConfig>, state: Videohu
 				variableId: `serial_${serial.id + 1}_id`,
 			})
 
-			variableValues[`serial_${serial.id + 1}_id`] = serial.id
+			variableValues[`serial_${serial.id + 1}_id`] = serial.id + 1
 
 			variableDefinitions.push({
 				name: `Label of serial routed to serial port ${serial.id + 1}`,
@@ -88,7 +88,7 @@ export function initVariables(self: InstanceBase<VideoHubConfig>, state: Videohu
 				variableId: `serial_${serial.id + 1}_route_id`,
 			})
 
-			variableValues[`serial_${serial.id + 1}_route_id`] = sourceSerial?.id ?? '?'
+			variableValues[`serial_${serial.id + 1}_route_id`] = sourceSerial?.id + 1 ?? '?'
 		}
 	}
 
@@ -127,9 +127,9 @@ export function updateSelectedDestinationVariables(
 
 	variableValues['selected_destination'] = selectedOutput?.name ?? '?'
 
-	variableValues['selected_destination_id'] = selectedOutput?.id ?? undefined
+	variableValues['selected_destination_id'] = selectedOutput?.id + 1 ?? undefined
 
 	variableValues['selected_source'] = inputForSelectedOutput?.name ?? '?'
 
-	variableValues['selected_source_id'] = inputForSelectedOutput?.id ?? undefined
+	variableValues['selected_source_id'] = inputForSelectedOutput?.id + 1 ?? undefined
 }
